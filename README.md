@@ -2,7 +2,7 @@
 
 A lightweight, client-only dashboard for Yost Facilities staff to monitor ice rink operations. Data is pulled directly from published Google Sheets JSON endpoints; no backend or database is required.
 
-### Features type shi
+### Features
 
 - **Login gate**: Single shared password, stored only in the front-end config.
 - **Main dashboard**: Header with branding, last refresh time, and logout button.
@@ -30,21 +30,74 @@ Then visit `http://localhost:4173` in your browser.
 
 ### Configuring Google Sheets
 
-1. **Set up your Google Form and Sheet**
-   - Create a Google Form for rink staff.
-   - Let Google create the response sheet automatically.
+**Yes, this is a template!** You can customize everything in `config.js`:
+- Add/remove forms
+- Change KPI names, units, and ranges
+- Update column mappings
+- Adjust refresh intervals
 
-2. **Publish the Sheet as JSON**
-   - Use your preferred method or add-on to expose the Sheet as a JSON endpoint.
-   - Copy the JSON URL.
+#### Step-by-Step: Setting Up Google Forms → Google Sheets → Dashboard
 
-3. **Update `config.js`**
-   - Locate the form configuration under `APP_CONFIG.forms`.
-   - Set `sheetJsonUrl` to your JSON endpoint.
-   - Ensure `columns` entries match the exact header names in your Sheet.
-   - Customize `kpis` (labels, column keys, units, and optional good ranges).
+1. **Create a Google Form**
+   - Go to [Google Forms](https://forms.google.com)
+   - Create your form (e.g., "Daily Ice Rink Operations")
+   - Add questions matching what you want to track (e.g., "Ice Temperature", "Attendance", "Maintenance Status")
+   - Google will automatically create a response Sheet
 
-If `sheetJsonUrl` is left as `null`, the dashboard will fall back to mock data so you can still see the UI.
+2. **Get Your Sheet ID**
+   - Open the response Sheet (click "Responses" tab → "Link to Sheets")
+   - Look at the URL: `https://docs.google.com/spreadsheets/d/SHEET_ID_HERE/edit`
+   - Copy the `SHEET_ID_HERE` part
+
+3. **Create a JSON Endpoint Using Google Apps Script**
+   - In your Sheet, go to **Extensions → Apps Script**
+   - Delete any default code and paste this:
+
+```javascript
+function doGet() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = sheet.getDataRange().getValues();
+  const headers = data[0];
+  const rows = data.slice(1).map(row => {
+    const obj = {};
+    headers.forEach((header, i) => {
+      obj[header] = row[i] || null;
+    });
+    return obj;
+  });
+  return ContentService.createTextOutput(JSON.stringify(rows))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+   - Click **Deploy → New deployment**
+   - Choose type: **Web app**
+   - Execute as: **Me**
+   - Who has access: **Anyone** (or "Anyone with Google account" if you want some protection)
+   - Click **Deploy**
+   - Copy the **Web app URL** (looks like `https://script.google.com/macros/s/.../exec`)
+
+4. **Update `config.js`**
+   - Open `config.js`
+   - Find the form you want to configure (e.g., `"daily-ops"`)
+   - Set `sheetJsonUrl` to your Apps Script URL from step 3
+   - **Important**: Make sure `columns` keys match your Sheet's exact header names:
+     ```javascript
+     columns: {
+       timestamp: "Timestamp",  // Must match Sheet header exactly
+       iceTemperature: "Ice Temperature (°F)",
+       // ... etc
+     }
+     ```
+   - Customize `kpis` to match your columns and add/remove as needed
+
+5. **Test It!**
+   - Submit a test entry via your Google Form
+   - Wait a few seconds for the form to process
+   - Refresh your dashboard (or wait for auto-refresh)
+   - You should see your real data!
+
+**Note**: If `sheetJsonUrl` is left as `null`, the dashboard will show mock data so you can test the UI without setting up Sheets first.
 
 ### Auto-Refresh
 
