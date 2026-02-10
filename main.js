@@ -245,7 +245,20 @@ async function fetchSheet(formConfig) {
   const normalizedRows = normalizeSheetData(json);
   
   // Map column names from the sheet to our internal keys using the config
-  return normalizedRows.map((row) => coerceSheetRow(row, formConfig.columns));
+  const mappedRows = normalizedRows.map((row) => coerceSheetRow(row, formConfig.columns));
+  
+  // Sort by timestamp descending (newest first) so KPI cards show the latest data
+  // If timestamp column exists, sort by it; otherwise keep original order
+  if (mappedRows.length > 0 && mappedRows[0].timestamp) {
+    mappedRows.sort((a, b) => {
+      const timeA = new Date(a.timestamp).getTime();
+      const timeB = new Date(b.timestamp).getTime();
+      // Descending order (newest first)
+      return timeB - timeA;
+    });
+  }
+  
+  return mappedRows;
 }
 
 async function refreshAllData() {
