@@ -17,7 +17,7 @@ export const APP_CONFIG = {
       label: "Daily Operations",
       // Replace this with your published Google Sheet JSON endpoint.
       // For development you can leave as null and the app will show mock data.
-      sheetJsonUrl: "https://script.google.com/macros/library/d/1hqYC3aRr04AlGKXqtPX6H4oZMd-ZtpskfXTNxi63VyBUvi_iobpz3m4Q/1",
+      sheetJsonUrl: "https://script.google.com/macros/s/AKfycbwHU5OJBNCi2VdF7BsMpX6lUflqhQVfRSD9dbqOH5Y3kmBH4qAmVzz9yJ4NyUjw-gxDuQ/exec",
 
       // Column mappings: keys used by the dashboard -> column header in the Sheet
       columns: {

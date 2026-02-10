@@ -55,18 +55,34 @@ Then visit `http://localhost:4173` in your browser.
 
 ```javascript
 function doGet() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const data = sheet.getDataRange().getValues();
-  const headers = data[0];
-  const rows = data.slice(1).map(row => {
-    const obj = {};
-    headers.forEach((header, i) => {
-      obj[header] = row[i] || null;
+  // Enable CORS for cross-origin requests
+  const output = ContentService.createTextOutput();
+  output.setMimeType(ContentService.MimeType.JSON);
+  
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    const data = sheet.getDataRange().getValues();
+    
+    if (data.length === 0) {
+      output.setContent(JSON.stringify([]));
+      return output;
+    }
+    
+    const headers = data[0];
+    const rows = data.slice(1).map(row => {
+      const obj = {};
+      headers.forEach((header, i) => {
+        obj[header] = row[i] || null;
+      });
+      return obj;
     });
-    return obj;
-  });
-  return ContentService.createTextOutput(JSON.stringify(rows))
-    .setMimeType(ContentService.MimeType.JSON);
+    
+    output.setContent(JSON.stringify(rows));
+    return output;
+  } catch (error) {
+    output.setContent(JSON.stringify({ error: error.toString() }));
+    return output;
+  }
 }
 ```
 
@@ -98,6 +114,34 @@ function doGet() {
    - You should see your real data!
 
 **Note**: If `sheetJsonUrl` is left as `null`, the dashboard will show mock data so you can test the UI without setting up Sheets first.
+
+### Troubleshooting "Failed to Fetch" Errors
+
+If you see a "Failed to fetch" or network error:
+
+1. **Check the URL format**
+   - Production deployments use `/exec` at the end: `.../macros/s/.../exec`
+   - Development URLs use `/dev`: `.../macros/s/.../dev`
+   - Both should work, but `/exec` is recommended for production
+
+2. **Verify deployment settings**
+   - Go back to Apps Script → **Deploy → Manage deployments**
+   - Click the pencil icon to edit
+   - Make sure **Who has access** is set to **"Anyone"** (not "Anyone with Google account")
+   - Click **Deploy** again if you changed it
+
+3. **Test the URL directly**
+   - Open your Apps Script URL in a browser
+   - You should see JSON data (or an empty array `[]` if the sheet is empty)
+   - If you see an error page, the script isn't deployed correctly
+
+4. **Check browser console**
+   - Open browser DevTools (F12) → Console tab
+   - Look for detailed error messages that will help diagnose the issue
+
+5. **Redeploy after script changes**
+   - After updating your Apps Script code, you must **Deploy → Manage deployments → Edit → Deploy** again
+   - The script won't update automatically
 
 ### Auto-Refresh
 

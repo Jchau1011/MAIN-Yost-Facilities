@@ -210,11 +210,36 @@ async function fetchSheet(formConfig) {
     return [];
   }
 
-  const resp = await fetch(formConfig.sheetJsonUrl);
-  if (!resp.ok) {
-    throw new Error(`Failed to load data (${resp.status})`);
+  let resp;
+  try {
+    resp = await fetch(formConfig.sheetJsonUrl, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+    });
+  } catch (err) {
+    // Network error (CORS, connection failed, etc.)
+    const url = formConfig.sheetJsonUrl;
+    const isDevUrl = url && url.includes('/dev');
+    const suggestion = isDevUrl 
+      ? ' Try changing the URL from /dev to /exec in config.js, or redeploy your Apps Script with "Anyone" access.'
+      : ' Make sure your Apps Script is deployed with "Anyone" access (not "Anyone with Google account").';
+    
+    throw new Error(
+      `Failed to fetch data from Google Sheets. ${err.message}.${suggestion} Check browser console (F12) for details.`
+    );
   }
-  const json = await resp.json();
+  
+  if (!resp.ok) {
+    throw new Error(`Failed to load data (HTTP ${resp.status})`);
+  }
+  
+  let json;
+  try {
+    json = await resp.json();
+  } catch (err) {
+    throw new Error(`Invalid JSON response: ${err.message}`);
+  }
 
   // Normalize the JSON into a consistent array of row objects
   const normalizedRows = normalizeSheetData(json);
@@ -476,7 +501,8 @@ function renderDashboard() {
   })();
 
   const errorBanner = appState.error
-    ? `<div class="logs-empty" style="background:#fef2f2;color:#991b1b;border-bottom:1px solid #fecaca;">
+    ? `<div class="logs-empty" style="background:#fef2f2;color:#991b1b;border-bottom:1px solid #fecaca;padding:16px;margin-bottom:16px;border-radius:8px;">
+         <strong>⚠️ Error loading data:</strong><br>
          ${appState.error}
        </div>`
     : "";
