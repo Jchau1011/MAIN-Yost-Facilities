@@ -15,6 +15,7 @@ export const APP_CONFIG = {
     {
       id: "ice-quality-reports",
       label: "Ice Quality Reports",
+      sheetUrl: "(link here)",
       sheetJsonUrl:
         "https://script.google.com/macros/s/AKfycbzGtHpFS_mgijUzPIzrbTY4aK2bu3l42Ysv_Ml9X7dG0efMs6WKbJrVkrdWdMTzE2HEsQ/exec",
       columns: {
@@ -50,6 +51,7 @@ export const APP_CONFIG = {
     {
       id: "softball-therapy-pool",
       label: "Softball Therapy Pool Checks",
+      sheetUrl: "(link here)",
       sheetJsonUrl:
         "https://script.google.com/macros/s/AKfycbydNaBif8DGS-j9XzVs7u-5UIgY9MRN9fRZFDVB4ve9apeBcUE7CCAzsVwojUIZ8ywv/exec",
       columns: {
@@ -86,6 +88,7 @@ export const APP_CONFIG = {
     {
       id: "fisher-therapy-pool",
       label: "Fisher Therapy Pool Checks",
+      sheetUrl: "(link here)",
       sheetJsonUrl:
         "https://script.google.com/macros/s/AKfycbzrj4iDt5ljiSJs-j-9tO8xjqwiFp7j6kAfNUW6cIT-myoQD9mHu9Yx7_jaSCwxfjjl/exec",
       corsProxy: "https://corsproxy.io/?",
@@ -116,6 +119,7 @@ export const APP_CONFIG = {
     {
       id: "yost-ice-depth",
       label: "Yost Ice Depth Checks",
+      sheetUrl: "(link here)",
       sheetJsonUrl:
         "https://script.google.com/macros/s/AKfycbyRwns4OrpmXePScYa5sr7rgF5tf3VjLETg8X_pH7MI5EZ1KU9UyJ79kJaASM4Ppgu3aA/exec",
       columns: {
