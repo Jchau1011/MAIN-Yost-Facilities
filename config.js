@@ -9,7 +9,7 @@ export const APP_CONFIG = {
   // Fetch Google Apps Script URLs directly from the browser.
   // If you ever hit CORS issues, you can optionally set this to a proxy URL
   // (e.g. "https://corsproxy.io/?") and the app will route requests through it.
-  corsProxy: null,
+  corsProxy: "/api/proxy?url=",
 
   forms: [
     {
@@ -91,7 +91,6 @@ export const APP_CONFIG = {
       sheetUrl: "(link here)",
       sheetJsonUrl:
         "https://script.google.com/macros/s/AKfycbzrj4iDt5ljiSJs-j-9tO8xjqwiFp7j6kAfNUW6cIT-myoQD9mHu9Yx7_jaSCwxfjjl/exec",
-      corsProxy: "https://corsproxy.io/?",
       columns: {
         timestamp: "Timestamp",
         date: "Date",
