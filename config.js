@@ -91,7 +91,6 @@ export const APP_CONFIG = {
       sheetUrl: "(link here)",
       sheetJsonUrl:
         "https://script.google.com/macros/s/AKfycbzrj4iDt5ljiSJs-j-9tO8xjqwiFp7j6kAfNUW6cIT-myoQD9mHu9Yx7_jaSCwxfjjl/exec",
-      corsProxy: "https://corsproxy.io/?",
       columns: {
         timestamp: "Timestamp",
         date: "Date",
