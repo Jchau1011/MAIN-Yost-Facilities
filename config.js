@@ -15,9 +15,9 @@ export const APP_CONFIG = {
     {
       id: "ice-quality-reports",
       label: "Ice Quality Reports",
-      sheetUrl: "(link here)",
+      sheetUrl: "https://docs.google.com/spreadsheets/d/1uvyEJpFY8eGcuc6Gz22sZn6pnVxsZ1gElv8YMnzsSM4/edit?gid=753097146#gid=753097146",
       sheetJsonUrl:
-        "https://script.google.com/macros/s/AKfycbzGtHpFS_mgijUzPIzrbTY4aK2bu3l42Ysv_Ml9X7dG0efMs6WKbJrVkrdWdMTzE2HEsQ/exec",
+        "https://script.google.com/macros/s/AKfycbzRXXdFNiavQCbLG0mDiIAGdhksFA5cXt209rAc9hcYVovVmE9v5ph98idIplc9RVhObQ/exec",
       columns: {
         timestamp: "Timestamp",
         date: "Date",
@@ -51,9 +51,9 @@ export const APP_CONFIG = {
     {
       id: "softball-therapy-pool",
       label: "Softball Therapy Pool Checks",
-      sheetUrl: "(link here)",
+      sheetUrl: "https://docs.google.com/spreadsheets/d/10XBiTfF0QTCC3znxr2nCdLM4nn0j29phQfbdmHbFeOA/edit?gid=97978185#gid=97978185",
       sheetJsonUrl:
-        "https://script.google.com/macros/s/AKfycbydNaBif8DGS-j9XzVs7u-5UIgY9MRN9fRZFDVB4ve9apeBcUE7CCAzsVwojUIZ8ywv/exec",
+        "https://script.google.com/macros/s/AKfycbzjcYYOX3UPAQqLIBysV9DKzmM7p-_JjLeoVAjxN4YG1wAYn5w7NKePP_9tlyT7xSlL/exec",
       columns: {
         timestamp: "Timestamp",
         date: "DATE",
@@ -88,9 +88,9 @@ export const APP_CONFIG = {
     {
       id: "fisher-therapy-pool",
       label: "Fisher Therapy Pool Checks",
-      sheetUrl: "(link here)",
+      sheetUrl: "https://docs.google.com/spreadsheets/d/1pdQTH-sbl41UA_yWMEWTyoGiruAqLVL61ym4ikHZ1Qk/edit?gid=462989413#gid=462989413",
       sheetJsonUrl:
-        "https://script.google.com/macros/s/AKfycbzrj4iDt5ljiSJs-j-9tO8xjqwiFp7j6kAfNUW6cIT-myoQD9mHu9Yx7_jaSCwxfjjl/exec",
+        "https://script.google.com/macros/s/AKfycbx7HJMz6_Qs3OmCAB1WSqs1bSEyUyRjcrNE1auGZ4ejioWoGLiS0JWW98LL3XE7my1V/exec",
       columns: {
         timestamp: "Timestamp",
         date: "Date",
@@ -118,9 +118,9 @@ export const APP_CONFIG = {
     {
       id: "yost-ice-depth",
       label: "Yost Ice Depth Checks",
-      sheetUrl: "(link here)",
+      sheetUrl: "https://docs.google.com/spreadsheets/d/15IEsNUxi_YsNDZMTRy3Pjqz7znd8QX9G5tO1fuj82wA/edit?gid=1000276266#gid=1000276266",
       sheetJsonUrl:
-        "https://script.google.com/macros/s/AKfycbyRwns4OrpmXePScYa5sr7rgF5tf3VjLETg8X_pH7MI5EZ1KU9UyJ79kJaASM4Ppgu3aA/exec",
+        "https://script.google.com/macros/s/AKfycbxpm5FWhB1F9zG1Upkc8rT2LMHrsfebqzuk7h56NHMd1doHiCqlEqJld6v3RiYGE4G4/exec",
       columns: {
         timestamp: "Timestamp",
         date: "",
