@@ -17,7 +17,7 @@ export const APP_CONFIG = {
       label: "Ice Quality Reports",
       sheetUrl: "(link here)",
       sheetJsonUrl:
-        "https://script.google.com/macros/s/AKfycbzGtHpFS_mgijUzPIzrbTY4aK2bu3l42Ysv_Ml9X7dG0efMs6WKbJrVkrdWdMTzE2HEsQ/exec",
+        "https://script.google.com/macros/s/AKfycbzRXXdFNiavQCbLG0mDiIAGdhksFA5cXt209rAc9hcYVovVmE9v5ph98idIplc9RVhObQ/exec",
       columns: {
         timestamp: "Timestamp",
         date: "Date",
@@ -53,7 +53,7 @@ export const APP_CONFIG = {
       label: "Softball Therapy Pool Checks",
       sheetUrl: "(link here)",
       sheetJsonUrl:
-        "https://script.google.com/macros/s/AKfycbydNaBif8DGS-j9XzVs7u-5UIgY9MRN9fRZFDVB4ve9apeBcUE7CCAzsVwojUIZ8ywv/exec",
+        "https://script.google.com/macros/s/AKfycbzjcYYOX3UPAQqLIBysV9DKzmM7p-_JjLeoVAjxN4YG1wAYn5w7NKePP_9tlyT7xSlL/exec",
       columns: {
         timestamp: "Timestamp",
         date: "DATE",
@@ -120,7 +120,7 @@ export const APP_CONFIG = {
       label: "Yost Ice Depth Checks",
       sheetUrl: "(link here)",
       sheetJsonUrl:
-        "https://script.google.com/macros/s/AKfycbyRwns4OrpmXePScYa5sr7rgF5tf3VjLETg8X_pH7MI5EZ1KU9UyJ79kJaASM4Ppgu3aA/exec",
+        "https://script.google.com/macros/s/AKfycbxpm5FWhB1F9zG1Upkc8rT2LMHrsfebqzuk7h56NHMd1doHiCqlEqJld6v3RiYGE4G4/exec",
       columns: {
         timestamp: "Timestamp",
         date: "",
