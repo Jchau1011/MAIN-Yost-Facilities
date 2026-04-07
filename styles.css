@@ -585,7 +585,7 @@ body {
 /* Statistics section */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 12px;
 }
 
@@ -593,7 +593,7 @@ body {
   background: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
-  padding: 12px 14px;
+  padding: 14px 16px;
 }
 
 .stat-label {
@@ -601,18 +601,20 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #6b7280;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .stat-row {
-  display: flex;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  min-width: 0;
 }
 
 .stat-item-label {
@@ -623,9 +625,12 @@ body {
 }
 
 .stat-item-value {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (max-width: 768px) {

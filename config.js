@@ -77,7 +77,7 @@ export const APP_CONFIG = {
         cl: "CL",
         clPpm: "CL (ppm)",
         orp: "ORP",
-        whatChemicals: "What chemicals",
+        whatChemicals: "What chemicals were added?",
         tubCheck: "Tub Check",
       },
       kpis: [
