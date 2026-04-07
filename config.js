@@ -203,7 +203,7 @@ export const APP_CONFIG = {
       label: "Fisher Stadium AstroTurf",
       sheetUrl: "https://docs.google.com/spreadsheets/d/1OOq7jbepuW1lRzCpIMoyHxHem3SY00oFhktF83u6DCM/edit?gid=1170812430#gid=1170812430",
       sheetJsonUrl:
-        "https://script.google.com/macros/s/AKfycbzSGmhwkuO_XUbtTIQNZu44GFjW7b8ubvyF4nRuNS5FVx6_hM-DHXQNzezGl8zVrO27/exec",
+        "https://script.google.com/macros/s/AKfycbxoc2UXtZO9_k1qX4jYMXts4B298iV6idC-8X4BNEtUwofrlN7SSc6iaED4zJqIy0Cy/exec",
       columns: {
         timestamp: "Date",
         date: "Date",
@@ -233,7 +233,7 @@ export const APP_CONFIG = {
       label: "Alumni Field AstroTurf",
       sheetUrl: "https://docs.google.com/spreadsheets/d/1djYCiA90FylgzsHsvkzYYU5E75WDa66offbmpZvWF38/edit?gid=1170812430#gid=1170812430",
       sheetJsonUrl:
-        "https://script.google.com/macros/s/AKfycbzdYYyTnJwtTYdRpF0A4-sVkT3_4XBzg3ixl6tk7VIdK5L9q-IOPVfMqGgCZWL-DtF4Ww/exec",
+        "https://script.google.com/macros/s/AKfycby_Yu3sdWYOnE-OElqH3ZZlNqw4e-LGGp2643IdKvHLv5qLgwDywK7uFXbwevLF-6pbOA/exec",
       columns: {
         timestamp: "Date",
         date: "Date",
